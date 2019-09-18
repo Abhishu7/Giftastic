@@ -1,29 +1,31 @@
 $(document).ready(function () {
-    var animals = ["elephant", "hippopotamus", "giraffe", "tiger", "lion", "rhinoceros", "cheetah", "zebra"]
-  
-    function renderButtons() {
-      $("#animalButtons").empty();
-  
-      for (var i = 0; i < animals.length; i++) {
-  
-        var a = $("<button>");
-  
-        a.addClass("animalBtn");
-        a.attr("data-name", animals[i]);
-        a.text(animals[i]);
-  
-        $("#animalButtons").append(a);
-    } 
-} 
-$("#addAnimal").on("click", function (event) {
-  event.preventDefault();
-  var animal = $("#animalInput").val().trim();
+  var players = ["cristiano ronaldo", "lionel messi", "neymar", "zlatan ibrahimovic"]
 
-  if (($.inArray(animal, animals) < 0) && (animal.length > 0)) {
-    animals.push(animal);
+  function renderButtons() {
+    $("#soccerButtons").empty();
+
+    for (var i = 0; i < players.length; i++) {
+
+      var a = $("<button>");
+
+      a.addClass("soccerBtn");
+      a.attr("data-name", players[i]);
+      a.text(players[i]);
+
+      $("#soccerButtons").append(a);
+    }
   }
-  renderButtons();
-  $("#animalInput").val("");
+  $("#addSoccer").on("click", function (event) {
+    event.preventDefault();
+    var player = $("#soccerInput").val().trim();
+
+    if (($.inArray(player, players) < 0) && (player.length > 0)) {
+      players.push(player);
+    }
+    renderButtons();
+    $("#soccerInput").val("");
+  });
+  
+
 });
- 
-})
+
