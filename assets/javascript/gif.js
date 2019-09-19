@@ -26,6 +26,7 @@ $(document).ready(function () {
     $("#soccerInput").val("");
   });
   $(document).on("click", ".soccerBtn", function (event) {
+    console.log(event)
     event.preventDefault();
     var player = $(this).attr("data-name");
     $("#soccerGif").empty();
