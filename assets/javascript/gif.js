@@ -32,7 +32,7 @@ $(document).ready(function () {
 
     var queryURL = "https://api.giphy.com/v1/gifs/random?tag=" +
       player + "&api_key=5AMolnIU0fKHH8CChmVDrbPXDGPVogk8";
-    
+
     for (var i = 0; i < 10; i++) {
 
       $.ajax({
@@ -40,7 +40,7 @@ $(document).ready(function () {
         method: "GET"
       })
         .then(function (response) {
-
+          console.log(response)
           var results = response.data;
 
           var soccerDiv = $("<div>");
@@ -62,7 +62,18 @@ $(document).ready(function () {
     }
   });
 
-  
+  $(document).on("click", "img", function (event) {
+    event.preventDefault();
+    var state = $(this).attr("dataState");
+
+    if (state == "animate") {
+      $(this).attr("src", $(this).attr("dataStill"));
+      $(this).attr("dataState", "still");
+    } else {
+      $(this).attr("src", $(this).attr("dataAnimate"));
+      $(this).attr("dataState", "animate");
+    }
+  });
   renderButtons();
 
 });
