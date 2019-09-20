@@ -49,6 +49,8 @@ $(document).ready(function () {
           var soccerImage = $("<img>");
           console.log(results.images.fixed_height_still.url);
 
+          var p = $("<p>").text("Rating:" + response.rating);
+
           soccerImage.attr({
             src: results.images.fixed_height_still.url,
             dataStill: results.images.fixed_height_still.url,
@@ -56,6 +58,7 @@ $(document).ready(function () {
             dataState: "still"
           });
           soccerDiv.append(soccerImage);
+          soccerDiv.append(p)
 
           $("#soccerGif").prepend(soccerDiv);
 
